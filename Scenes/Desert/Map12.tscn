@@ -22,18 +22,18 @@ position = Vector2(528, 0)
 [node name="Map12_base" parent="." instance=ExtResource("2_sf5sf")]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_fgrb5")]
-position = Vector2(29, -31)
+position = Vector2(23, -120)
 
 [node name="PlayerSpawn2" parent="." instance=ExtResource("3_fgrb5")]
-position = Vector2(49, -31)
+position = Vector2(424, -136)
 id = 2
 
 [node name="PlayerSpawn3" parent="." instance=ExtResource("3_fgrb5")]
-position = Vector2(70, -31)
+position = Vector2(23, -232)
 id = 3
 
 [node name="PlayerSpawn4" parent="." instance=ExtResource("3_fgrb5")]
-position = Vector2(90, -31)
+position = Vector2(393, -248)
 id = 4
 
 [node name="KillZone" parent="." instance=ExtResource("4_0776t")]
