@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://cxyvmawpd1asq"]
+[gd_scene load_steps=7 format=4 uid="uid://cxyvmawpd1asq"]
 
 [ext_resource type="Texture2D" uid="uid://coii1hcvwjl4y" path="res://Images/Platformer Tileset/BG/sky2.png" id="1_0ndw1"]
 [ext_resource type="TileSet" uid="uid://cbwavwhjyl24" path="res://Prefabs/tiles.tres" id="2_t4ath"]
+[ext_resource type="Texture2D" uid="uid://dno8pfwvunq00" path="res://Images/Platformer Tileset/BG/desert1.png" id="2_ttn24"]
 [ext_resource type="PackedScene" uid="uid://b4ix7cbfdef6x" path="res://Prefabs/slow_sand.tscn" id="3_t4ath"]
 [ext_resource type="PackedScene" uid="uid://db4ukbgv807ke" path="res://Prefabs/explosive_barrel.tscn" id="4_nv1l7"]
 [ext_resource type="PackedScene" uid="uid://cbyhjparf882t" path="res://Prefabs/wooden_crate.tscn" id="5_6v61v"]
@@ -15,6 +16,22 @@ z_index = -1
 position = Vector2(264, -144)
 scale = Vector2(64, 4)
 texture = ExtResource("1_0ndw1")
+
+[node name="Desert1" type="Sprite2D" parent="BackGround"]
+position = Vector2(195, -40)
+texture = ExtResource("2_ttn24")
+
+[node name="Desert2" type="Sprite2D" parent="BackGround"]
+position = Vector2(71, -40)
+texture = ExtResource("2_ttn24")
+
+[node name="Desert3" type="Sprite2D" parent="BackGround"]
+position = Vector2(323, -40)
+texture = ExtResource("2_ttn24")
+
+[node name="Desert4" type="Sprite2D" parent="BackGround"]
+position = Vector2(451, -40)
+texture = ExtResource("2_ttn24")
 
 [node name="TileMap" type="Node2D" parent="."]
 
