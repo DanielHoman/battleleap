@@ -1,22 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://c33ulhbmdu2va"]
+[gd_scene load_steps=13 format=3 uid="uid://c33ulhbmdu2va"]
 
 [ext_resource type="Script" uid="uid://ruksd3vdlj0w" path="res://Scripts/game_manager.gd" id="1_q7s2u"]
 [ext_resource type="Texture2D" uid="uid://db7ondh8miai3" path="res://Images/Platformer Tileset/Icons/grass-single-platform.png" id="2_7mv47"]
+[ext_resource type="Script" uid="uid://cm4x8rble0ovo" path="res://Scripts/camera_manager.gd" id="2_jw32o"]
 [ext_resource type="Texture2D" uid="uid://cqcqbxhhr8vwd" path="res://Images/Background.png" id="2_wkk8o"]
 [ext_resource type="Texture2D" uid="uid://blya1hlc8o777" path="res://Images/Platformer Tileset/Icons/cave-single-platform.png" id="3_lvc0p"]
+[ext_resource type="Texture2D" uid="uid://gmsbn2kcx54h" path="res://Images/Platformer Tileset/Icons/desert-single-platform.png" id="4_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://bev3558kqokbf" path="res://Scenes/Maps.tscn" id="6_v1gob"]
+[ext_resource type="FontFile" uid="uid://vumttnx1mako" path="res://Fonts/ComicRelief-Bold.ttf" id="8_50glp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_00xaj"]
 
-[sub_resource type="SystemFont" id="SystemFont_nlkcr"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_7n377"]
-font = SubResource("SystemFont_nlkcr")
+font = ExtResource("8_50glp")
 font_size = 150
 
-[sub_resource type="SystemFont" id="SystemFont_xvbgb"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_0t0ht"]
-font = SubResource("SystemFont_xvbgb")
 font_size = 75
 
 [sub_resource type="LabelSettings" id="LabelSettings_2jpkx"]
@@ -37,6 +36,20 @@ metadata/PointsToWin = 1
 metadata/StartingMap = &"res://Scenes/Test/Test.tscn"
 metadata/LoopMap = false
 
+[node name="TopLeft" type="Marker2D" parent="."]
+position = Vector2(0, 952)
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(528, 1240)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("corner1", "corner2")]
+script = ExtResource("2_jw32o")
+corner1 = NodePath("../TopLeft")
+corner2 = NodePath("../BottomRight")
+
+[node name="Maps" parent="." instance=ExtResource("6_v1gob")]
+position = Vector2(0, 1240)
+
 [node name="Menu" type="CanvasLayer" parent="."]
 
 [node name="LevelSelect" type="OptionButton" parent="Menu"]
@@ -52,8 +65,9 @@ offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(68, 15)
+language = "en"
 selected = 0
-item_count = 11
+item_count = 16
 popup/item_0/text = "GrassLand1"
 popup/item_0/icon = ExtResource("2_7mv47")
 popup/item_0/id = 0
@@ -84,8 +98,23 @@ popup/item_8/id = 8
 popup/item_9/text = "Cave5"
 popup/item_9/icon = ExtResource("3_lvc0p")
 popup/item_9/id = 9
-popup/item_10/text = "Teszt"
+popup/item_10/text = "Desert1"
+popup/item_10/icon = ExtResource("4_pbw6q")
 popup/item_10/id = 10
+popup/item_11/text = "Desert2"
+popup/item_11/icon = ExtResource("4_pbw6q")
+popup/item_11/id = 11
+popup/item_12/text = "Desert3"
+popup/item_12/icon = ExtResource("4_pbw6q")
+popup/item_12/id = 12
+popup/item_13/text = "Desert4"
+popup/item_13/icon = ExtResource("4_pbw6q")
+popup/item_13/id = 13
+popup/item_14/text = "Desert5"
+popup/item_14/icon = ExtResource("4_pbw6q")
+popup/item_14/id = 14
+popup/item_15/text = "Teszt"
+popup/item_15/id = 15
 
 [node name="LoopMap" type="CheckButton" parent="Menu"]
 anchors_preset = 8
@@ -100,7 +129,8 @@ offset_bottom = -70.9998
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(97, 15.5)
-text = "Loop Selected Map"
+text = "Loop Selected Maps"
+language = "en"
 
 [node name="PlayerCount" type="OptionButton" parent="Menu"]
 anchors_preset = 8
@@ -115,6 +145,7 @@ offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(57, 15)
+language = "en"
 selected = 0
 item_count = 3
 popup/item_0/text = "2 players"
@@ -137,6 +168,7 @@ offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(61, 15)
+language = "en"
 selected = 0
 item_count = 10
 popup/item_0/text = "1 round"
@@ -175,6 +207,7 @@ grow_vertical = 2
 pivot_offset = Vector2(66, 20)
 text = "Start Game"
 icon = SubResource("CompressedTexture2D_00xaj")
+language = "en"
 
 [node name="WinScreen" type="CanvasLayer" parent="."]
 
@@ -205,6 +238,7 @@ text = "Round Over"
 label_settings = SubResource("LabelSettings_7n377")
 horizontal_alignment = 1
 vertical_alignment = 1
+language = "en"
 
 [node name="PlayerLabel" type="Label" parent="WinScreen"]
 visible = false
@@ -223,6 +257,7 @@ text = "Player X Won"
 label_settings = SubResource("LabelSettings_0t0ht")
 horizontal_alignment = 1
 vertical_alignment = 1
+language = "en"
 
 [node name="WinLabel" type="Label" parent="WinScreen"]
 visible = false
@@ -232,9 +267,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 76.0
+offset_top = 36.0
 offset_right = 100.0
-offset_bottom = 226.0
+offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Player 1: 0 Win
@@ -244,6 +279,7 @@ Player 4: 0 Win"
 label_settings = SubResource("LabelSettings_2jpkx")
 horizontal_alignment = 1
 vertical_alignment = 1
+language = "en"
 
 [node name="RestartTimer" type="Timer" parent="."]
 

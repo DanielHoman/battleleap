@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk4xv0vvd5k6d"]
+[gd_scene load_steps=8 format=3 uid="uid://dk4xv0vvd5k6d"]
 
 [ext_resource type="Script" uid="uid://cm4x8rble0ovo" path="res://Scripts/camera_manager.gd" id="1_1uylr"]
 [ext_resource type="PackedScene" uid="uid://b86jys6c7ecps" path="res://Scenes/Desert/Map15_base.tscn" id="2_1uylr"]
 [ext_resource type="PackedScene" uid="uid://2wlmsuqwcce6" path="res://Prefabs/Players/player_spawner.tscn" id="3_56dgl"]
 [ext_resource type="PackedScene" uid="uid://cpfrdstjj26fm" path="res://Prefabs/killzone.tscn" id="4_qb13n"]
+[ext_resource type="PackedScene" uid="uid://dec5p7ojot6js" path="res://Prefabs/map_border.tscn" id="5_ai54p"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8wfv5"]
-normal = Vector2(1, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai54p"]
+size = Vector2(20, 74)
 
-[node name="Map11" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56dgl"]
+size = Vector2(20, 42)
+
+[node name="Map15" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("corner1", "corner2")]
 script = ExtResource("1_1uylr")
@@ -24,31 +28,43 @@ position = Vector2(528, 0)
 [node name="Map15_base" parent="." instance=ExtResource("2_1uylr")]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_56dgl")]
-position = Vector2(29, -31)
+position = Vector2(23, -24)
 
 [node name="PlayerSpawn2" parent="." instance=ExtResource("3_56dgl")]
-position = Vector2(49, -31)
+position = Vector2(487, -280)
 id = 2
 
 [node name="PlayerSpawn3" parent="." instance=ExtResource("3_56dgl")]
-position = Vector2(70, -31)
+position = Vector2(23, -248)
 id = 3
 
 [node name="PlayerSpawn4" parent="." instance=ExtResource("3_56dgl")]
-position = Vector2(90, -31)
+position = Vector2(487, -168)
 id = 4
 
 [node name="KillZone" parent="." instance=ExtResource("4_qb13n")]
 position = Vector2(264, 144)
 
-[node name="Wall" type="StaticBody2D" parent="."]
+[node name="MapBorder" parent="." instance=ExtResource("5_ai54p")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-shape = SubResource("WorldBoundaryShape2D_8wfv5")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(504, -112)
 
-[node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2(528, 0)
-rotation = 3.14159
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-18, 0)
+shape = SubResource("RectangleShape2D_ai54p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-shape = SubResource("WorldBoundaryShape2D_8wfv5")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(18, 0)
+shape = SubResource("RectangleShape2D_ai54p")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(504, -240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-18, 0)
+shape = SubResource("RectangleShape2D_56dgl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(18, 0)
+shape = SubResource("RectangleShape2D_56dgl")
