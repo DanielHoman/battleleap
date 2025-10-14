@@ -15,7 +15,7 @@ The focus is on positioning, timing, and survival rather than speed.
 ## ✨ Features
 - Local multiplayer for **2-4 players**
 - Pixel art visuals
-- 10 maps to play on (20 planned)
+- 15 maps to play on (20 planned)
 - Configurable match rules:
   - Number of wins required
   - Number of players (2-4)
@@ -43,8 +43,8 @@ The focus is on positioning, timing, and survival rather than speed.
 ---
 
 ## 📝 Planned Features / Roadmap
-- Add **mines** that appear on the map or can be dropped from breakable crates
-- Expand to **20 maps** (currently 10)
+- **Mines:** Players start with mines; more can only be acquired from breakable crates.
+- Expand to **20 maps** (currently 15)
 - Add **sounds and music** for a more immersive experience
 - Implement a proper **menu system**
 - Adjust **fire damage mechanics**
