@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfh6lj6w58ofe"]
+
+[ext_resource type="Script" uid="uid://cm4x8rble0ovo" path="res://Scripts/camera_manager.gd" id="1_rqvg3"]
+[ext_resource type="PackedScene" uid="uid://cu3xnjli4yaiy" path="res://Scenes/Tundra/Map18_base.tscn" id="2_rqvg3"]
+[ext_resource type="PackedScene" uid="uid://2wlmsuqwcce6" path="res://Prefabs/Players/player_spawner.tscn" id="3_qdicj"]
+[ext_resource type="PackedScene" uid="uid://cpfrdstjj26fm" path="res://Prefabs/killzone.tscn" id="4_qng5g"]
+[ext_resource type="PackedScene" uid="uid://dec5p7ojot6js" path="res://Prefabs/map_border.tscn" id="5_4de4h"]
+
+[node name="Map18" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("corner1", "corner2")]
+script = ExtResource("1_rqvg3")
+corner1 = NodePath("../TopLeft")
+corner2 = NodePath("../BottomRight")
+
+[node name="TopLeft" type="Marker2D" parent="."]
+position = Vector2(0, -288)
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(528, 0)
+
+[node name="Map18_base" parent="." instance=ExtResource("2_rqvg3")]
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_qdicj")]
+position = Vector2(29, -31)
+
+[node name="PlayerSpawn2" parent="." instance=ExtResource("3_qdicj")]
+position = Vector2(49, -31)
+id = 2
+
+[node name="PlayerSpawn3" parent="." instance=ExtResource("3_qdicj")]
+position = Vector2(70, -31)
+id = 3
+
+[node name="PlayerSpawn4" parent="." instance=ExtResource("3_qdicj")]
+position = Vector2(90, -31)
+id = 4
+
+[node name="KillZone" parent="." instance=ExtResource("4_qng5g")]
+position = Vector2(264, 144)
+
+[node name="MapBorder" parent="." instance=ExtResource("5_4de4h")]

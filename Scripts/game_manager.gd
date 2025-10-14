@@ -34,6 +34,11 @@ var maps = [
 	"res://Scenes/Desert/Map13.tscn",
 	"res://Scenes/Desert/Map14.tscn",
 	"res://Scenes/Desert/Map15.tscn",
+	"res://Scenes/Tundra/Map16.tscn",
+	"res://Scenes/Tundra/Map17.tscn",
+	"res://Scenes/Tundra/Map18.tscn",
+	"res://Scenes/Tundra/Map19.tscn",
+	"res://Scenes/Tundra/Map20.tscn",
 	"res://Scenes/Test/Test.tscn"
 	]
 
@@ -73,7 +78,12 @@ func _on_level_select_item_selected(index):
 		12: set_meta("StartingMap", "res://Scenes/Desert/Map13.tscn")
 		13: set_meta("StartingMap", "res://Scenes/Desert/Map14.tscn")
 		14: set_meta("StartingMap", "res://Scenes/Desert/Map15.tscn")
-		15: set_meta("StartingMap", "res://Scenes/Test/Test.tscn")
+		15: set_meta("StartingMap", "res://Scenes/Tundra/Map16.tscn")
+		16: set_meta("StartingMap", "res://Scenes/Tundra/Map17.tscn")
+		17: set_meta("StartingMap", "res://Scenes/Tundra/Map18.tscn")
+		18: set_meta("StartingMap", "res://Scenes/Tundra/Map19.tscn")
+		19: set_meta("StartingMap", "res://Scenes/Tundra/Map20.tscn")
+		20: set_meta("StartingMap", "res://Scenes/Test/Test.tscn")
 
 func _on_loop_map_toggled(toggled_on):
 	set_meta("LoopMap", toggled_on)
